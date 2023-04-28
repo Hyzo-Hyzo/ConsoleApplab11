@@ -38,7 +38,21 @@ public static class StringExtensions
 
         return count;
     }
+
+    public static int CountConsonants(this string input)
+    {
+        int k = 0;
+        foreach (char c in input)
+        {
+            if (char.IsLetter(c) && !("aeiouAEIOU".Contains(c)))
+            {
+                k++;
+            }
+        }
+        return k;
+    }
 }
+
 class Program
 {
     static void Main()
@@ -71,5 +85,11 @@ class Program
         {
             Console.WriteLine($"The word '{word}' contains {word.CountVowels()} vowels.");
         }
+
+
+        //5
+        string input = "Hello World!";
+        int consonant = input.CountConsonants();
+        Console.WriteLine("The number of consonants in '{0}' is {1}.", input, consonant);
     }
 }
